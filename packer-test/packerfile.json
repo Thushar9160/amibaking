@@ -23,7 +23,7 @@
                 {
                  "type": "shell",
                  "remote_dir": "/home/ec2-user",
-                 "environment_vars": ["version={{user `dt_version`}}", "s3_path={{user `s3path`}}"]
+                 "environment_vars": ["version={{user `dt_version`}}", "s3_path={{user `s3path`}}"],
                  "script": "../scripts/dynatraceinstall.sh"
                 }
 ]
