@@ -22,8 +22,8 @@
 "provisioners": [
                 {
                  "type": "shell",
-                 "remote_dir": "/home/ec2-user"
-                 "environment_vars": ["token={{user `token_arg`}}", "env_id={{user `dt_env_id`}}", "version={{user `dt_version`}}", "s3_path={{user `s3path`}}"]
+                 "remote_dir": "/home/ec2-user",
+                 "environment_vars": ["version={{user `dt_version`}}", "s3_path={{user `s3path`}}"],
                  "script": "../scripts/dynatraceinstall.sh"
                 }
 ]
