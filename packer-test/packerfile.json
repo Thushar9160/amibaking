@@ -1,0 +1,30 @@
+{
+"builders": [
+            {
+             "type": "amazon-ebs",
+             "access_key": "",
+             "secret_key": "",
+             "region": "us-east-1",
+             "source_ami_filter": {
+                                   "filters": {
+                                           "virtualization-type": "hvm",
+                                           "name": "amzn2-ami-hvm-2.0.*.0-x86_64-ebs",
+                                           "root-device-type": "ebs"
+                                  },
+                                   "owners": ["amazon"],
+                                   "most_recent": true
+             },
+             "instance_type": "t2.micro",
+             "ami_name": "test-ami",
+             "ssh_username": "ec2-user"
+ }
+],
+"provisioners": [
+                {
+                 "type": "shell",
+                 "remote_dir": "/home/ec2-user"
+                 "environment_vars": ["token={{user `token_arg`}}", "env_id={{user `dt_env_id`}}", "version={{user `dt_version`}}", "s3_path={{user `s3path`}}"]
+                 "script": "../scripts/dynatraceinstall.sh"
+                }
+]
+}
